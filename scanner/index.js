@@ -28,7 +28,7 @@ function nodeJsonToIPList(exitnodes) {
 
 const ipScanResults = {};
 function scanIP(ip) {
-  const whoAreYouPath = '/';
+  const whoAreYouPath = '/waldo';
   const serviceUrl = `http://${ip}${whoAreYouPath}`;
   console.log('scanning ' + serviceUrl);
   
