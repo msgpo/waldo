@@ -39,11 +39,11 @@ function scanIP(ip) {
   setTimeout(() => controller.abort(), fetchTimeout);
 
   return fetch(serviceUrl, { signal })
-    .then((response) => {
+    .then(async (response) => {
       if (response.ok) {
-        response.text((text) => {
-          ipScanResults[ip] = { ok: true, text: text };
-        })
+        let text = await response.text();
+        console.log(text);
+        ipScanResults[ip] = { ok: true, text: text };
       } else {
         ipScanResults[ip] = { ok: false };
       }
